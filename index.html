@@ -25,12 +25,6 @@
 <li>This course provides a gentle introduction to containers. It is best used in conjunction with the official <a href="https://docs.docker.com/">Docker Documentation</a>.</li>
 </ul>
 </section><section>
-<h2 id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#what-is-docker">What is Docker?</a></li>
-<li><a href="#building-a-docker-image">Building a Docker Image</a></li>
-</ul>
-</section><section>
 <h2 id="what-is-docker">What is Docker?</h2>
 <p>Docker is a container runtime there are multiple types of container runtimes. Popular rutimes are:</p>
 <ul>
@@ -104,8 +98,8 @@
 </li>
 </ul>
 </section><section>
-<h4 id="a-container-uses-namespaces-to-interact-with-the-kernel">A container uses namespaces to interact with the kernel.</h4>
-<p>These namespaces may or may not be the actual native kernel namespaces, they typically represent:</p>
+<h4 id="a-container-interact-with-the-kernel-via-a-namespace">A container interact with the kernel via a namespace.</h4>
+<p>These namespaces may or may not be the actual native kernel namespaces, but they typically allow interaction with specified:</p>
 <ul>
 <li>
 
@@ -262,7 +256,7 @@ These docker files usually consist of a base image, commands, and any other conf
 </blockquote>
 </section><section>
 <h3 id="network-mapping">Network Mapping</h3>
-<p>Once you create a network resource, you can then map the network resource into a container using the &ndash;network switch.</p>
+<p>Once network resource is created, you can map the resource into a container using the <code>--network</code> switch.</p>
 <blockquote>
 <p><span style="font-size:1rem"><code>docker run --network NameOfCreatedNetwork NameOfContainer</code></span></p>
 </blockquote>
@@ -270,6 +264,54 @@ These docker files usually consist of a base image, commands, and any other conf
 <li>Starting another container with the same network, will allow them to communicate with each other.</li>
 <li>Using the switch <code>--network-alias</code> will set up a DNS &ldquo;A&rdquo; record</li>
 </ul>
+</section><section>
+<h3 id="docker">Docker</h3>
+<ul>
+<li>Docker consists of a daemon (or as windows people call them: &ldquo;service&rdquo;)</li>
+<li>This process is normally referred to as dockerd</li>
+<li>You can configure dockerd via a <code>daemon.json</code> file</li>
+<li>The configuration file allows you to specify debug mode, using TLS and the certificate locations, and as well as the interfaces to listen on.</li>
+<li>There are numerous other options that can be added: <a href="https://docs.docker.com/config/daemon/">dockerd</a></li>
+</ul>
+</section><section>
+<h3 id="more-regarding-namespaces">More regarding Namespaces</h3>
+<ul>
+<li>Each container will get its own namespace when started</li>
+<li>A namespace essentially limits an application&rsquo;s ability to communicate</li>
+<li>Think of a namespace as a logical separation</li>
+<li>The same way that a VLAN controls network traffic, a Namespace controls application traffic</li>
+</ul>
+</section><section>
+<h3 id="container-control-groups">Container Control Groups</h3>
+<ul>
+<li>A container&rsquo;s resources can be specified/limited by a control group (cgroup for short)</li>
+<li>These resources may include the capacity or time utilization of a container&rsquo;s Memory, CPU, Disk, or Network.</li>
+<li>A cgroup is different than a namespace</li>
+<li>A cgroup does <span style="color:red">NOT</span> control access, it simply controls limits.</li>
+</ul>
+</section><section>
+<h3 id="container-networking">Container Networking</h3>
+<p>Docker supports different types of network drivers (bridge, host, overlay, macvlan) Some of these are similar to a VM&rsquo;s equivalent, while some are different.<br>
+
+
+<span class='fragment ' ><span style="font-size:.5em">bridge: the default type and typically only allows connection to other containers</span></span>
+
+<br>
+
+
+<span class='fragment ' ><span style="font-size:.5em">host: This isn&rsquo;t an internal NAT or anything, it essentially will map directly to the host machine</span></span>
+
+<br>
+
+
+<span class='fragment ' ><span style="font-size:.5em">overlay: similar to a bridge, but can allow traffic multiple bridge networks</span></span>
+
+<br>
+
+
+<span class='fragment ' ><span style="font-size:.5em">macvlan: This essentially allows the container to be seen as a seperate host on the network</span></span>
+
+</p>
 </section>
 
   
