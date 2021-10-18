@@ -224,7 +224,7 @@ These docker files usually consist of a base image, commands, and any other conf
 <h3 id="running">Running</h3>
 <p>The docker images that you build or download can then be ran using the command</p>
 <blockquote>
-<p><code>docker run</code></p>
+<p><code>docker run NameOfContainer</code></p>
 </blockquote>
 </section><section>
 <h3 id="updating">Updating</h3>
@@ -250,10 +250,26 @@ These docker files usually consist of a base image, commands, and any other conf
 </blockquote>
 </section><section>
 <h3 id="storage-mapping">Storage Mapping</h3>
-<p>Once you create a storage volume that is stored on the host machine, that volume can then be mapped into a running container using the -v switch.</p>
+<p>Once you create a storage volume that is stored on the host machine, that volume can then be mapped into a running container using the <code>-v</code> switch.</p>
 <blockquote>
-<p><span style="font-size:1rem"><code>docker run -v NameOfCreatedVolume:/your/mount/point/inside/container</code></span></p>
+<p><span style="font-size:1rem"><code>docker run -v NameOfCreatedVolume:/container/mount/point NameOfContainer</code></span></p>
 </blockquote>
+</section><section>
+<h3 id="networking">Networking</h3>
+<p>Ensuring your container can access network resources is pretty useful, this can be accomplished using the command</p>
+<blockquote>
+<p><code>docker network</code></p>
+</blockquote>
+</section><section>
+<h3 id="network-mapping">Network Mapping</h3>
+<p>Once you create a network resource, you can then map the network resource into a container using the &ndash;network switch.</p>
+<blockquote>
+<p><span style="font-size:1rem"><code>docker run --network NameOfCreatedNetwork NameOfContainer</code></span></p>
+</blockquote>
+<ul>
+<li>Starting another container with the same network, will allow them to communicate with each other.</li>
+<li>Using the switch <code>--network-alias</code> will set up a DNS &ldquo;A&rdquo; record</li>
+</ul>
 </section>
 
   
