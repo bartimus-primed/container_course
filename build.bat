@@ -1,0 +1,1 @@
+hugo -b https://bartimus-primed.github.io/container_course -d docs
