@@ -4,10 +4,6 @@ outputs = ["Reveal"]
 +++
 # Introduction to Containers
 - This course provides a gentle introduction to containers. It is best used in conjunction with the official [Docker Documentation](https://docs.docker.com/).
----
-## Table of Contents
- - [What is Docker?](#what-is-docker)
- - [Building a Docker Image](#building-a-docker-image)
 
 ---
 ## What is Docker?
@@ -32,8 +28,8 @@ Docker is a container runtime there are multiple types of container runtimes. Po
 - {{% fragment %}}A container runs isolated processes (the container itself is a process){{% /fragment %}}
 
 ---
-#### A container uses namespaces to interact with the kernel. 
-These namespaces may or may not be the actual native kernel namespaces, they typically represent:
+#### A container interact with the kernel via a namespace. 
+These namespaces may or may not be the actual native kernel namespaces, but they typically allow interaction with specified:
 - {{% fragment %}}processes{{% /fragment %}}
 - {{% fragment %}}storage{{% /fragment %}}
 - {{% fragment %}}network{{% /fragment %}}
@@ -82,7 +78,7 @@ These docker files usually consist of a base image, commands, and any other conf
 ### Running
 The docker images that you build or download can then be ran using the command
 
-> `docker run`
+> `docker run NameOfContainer`
 
 ---
 ### Updating
@@ -104,9 +100,62 @@ followed by the command
 Everytime a docker image is stopped and brought back up, it *should* come up in a prestine state. This means all changes will be reverted (kind of like a deep freeze). This isn't exactly useful as most applications require some sort of state storage (a database, list of users, created files, etc...) A persistant storage volume can be created by using the command 
 > `docker volume`
 
-
 ---
 ### Storage Mapping
-Once you create a storage volume that is stored on the host machine, that volume can then be mapped into a running container using the -v switch.
+Once you create a storage volume that is stored on the host machine, that volume can then be mapped into a running container using the `-v` switch.
 
-> <span style="font-size:1rem">`docker run -v NameOfCreatedVolume:/your/mount/point/inside/container`</span>
+> <span style="font-size:1rem">`docker run -v NameOfCreatedVolume:/container/mount/point NameOfContainer`</span>
+
+---
+### Networking
+Ensuring your container can access network resources is pretty useful, this can be accomplished using the command
+> `docker network`
+
+---
+### Network Mapping
+Once network resource is created, you can map the resource into a container using the `--network` switch.
+> <span style="font-size:1rem">`docker run --network NameOfCreatedNetwork NameOfContainer`</span>
+
+- Starting another container with the same network, will allow them to communicate with each other.
+- Using the switch `--network-alias` will set up a DNS "A" record
+
+---
+### Docker
+- Docker consists of a daemon (or as windows people call them: "service")
+- This process is normally referred to as dockerd
+- You can configure dockerd via a `daemon.json` file
+- The configuration file allows you to specify debug mode, using TLS and the certificate locations, and as well as the interfaces to listen on.
+- There are numerous other options that can be added: [dockerd](https://docs.docker.com/config/daemon/)
+
+---
+### More regarding Namespaces
+- Each container will get its own namespace when started
+- A namespace essentially limits an application's ability to communicate
+- Think of a namespace as a logical separation
+- The same way that a VLAN controls network traffic, a Namespace controls application traffic
+
+---
+### Container Control Groups
+- A container's resources can be specified/limited by a control group (cgroup for short)
+- These resources may include the capacity or time utilization of a container's Memory, CPU, Disk, or Network.
+- A cgroup is different than a namespace
+- A cgroup does <span style="color:red">NOT</span> control access, it simply controls limits.
+
+---
+### Container Networking
+Docker supports different types of network drivers (bridge, host, overlay, macvlan) Some of these are similar to a VM's equivalent, while some are different.  
+{{% fragment %}}<span style="font-size:.5em">bridge: the default type and typically only allows connection to other containers</span>{{% /fragment %}}  
+{{% fragment %}}<span style="font-size:.5em">host: This isn't an internal NAT or anything, it essentially will map directly to the host machine</span>{{% /fragment %}}  
+{{% fragment %}}<span style="font-size:.5em">overlay: similar to a bridge, but can allow traffic multiple bridge networks</span>{{% /fragment %}}  
+{{% fragment %}}<span style="font-size:.5em">macvlan: This essentially allows the container to be seen as a seperate host on the network</span>{{% /fragment %}}
+
+---
+### Some history/clarification on docker and `containerd`
+- When docker originally came out it was mostly a coupled solution for creating, running, managing containers
+- Enter kubernetes, used to manage multiple container instances. Kubernetes needed a saw and ducktape to cut out unneeded portions of docker. This was called docker-shim
+
+---
+### `containerd` history continued
+- Docker was nice enough to decouple their solution, the container creation/manangement portion was called <strong>containerd</strong>, and the runtime portion was called <strong>runc</strong>
+- `containerd` and `runc` were then given to the Open Container Initiative (OCI) that manages container standards
+- This allows higher level management software (like kubernetes) to only use the portions of docker that are needed
