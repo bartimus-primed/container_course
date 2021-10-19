@@ -312,6 +312,19 @@ These docker files usually consist of a base image, commands, and any other conf
 <span class='fragment ' ><span style="font-size:.5em">macvlan: This essentially allows the container to be seen as a seperate host on the network</span></span>
 
 </p>
+</section><section>
+<h3 id="some-historyclarification-on-docker-and-containerd">Some history/clarification on docker and <code>containerd</code></h3>
+<ul>
+<li>When docker originally came out it was mostly a coupled solution for creating, running, managing containers</li>
+<li>Enter kubernetes, used to manage multiple container instances. Kubernetes needed a saw and ducktape to cut out unneeded portions of docker. This was called docker-shim</li>
+</ul>
+</section><section>
+<h3 id="containerd-history-continued"><code>containerd</code> history continued</h3>
+<ul>
+<li>Docker was nice enough to decouple their solution, the container creation/manangement portion was called <strong>containerd</strong>, and the runtime portion was called <strong>runc</strong></li>
+<li><code>containerd</code> and <code>runc</code> were then given to the Open Container Initiative (OCI) that manages container standards</li>
+<li>This allows higher level management software (like kubernetes) to only use the portions of docker that are needed</li>
+</ul>
 </section>
 
   
