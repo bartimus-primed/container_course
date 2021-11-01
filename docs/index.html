@@ -365,7 +365,7 @@ ls
 <p>It may have surprised you that the file no longer exists. This is one of the things I see confuse people who are new to containers.
 Remember that containers are meant to be ephimeral and should be thought of as living in RAM, not on disk. 
 When you exit from the container, the container no longer has a purpose so it shuts down, and will remove the resources associated with it.<br>
-<span style="color:red"><em><strong>Don&rsquo;t make the mistake of saving your data to the container&rsquo;s filesystem, without mounting a storage volume into the container.</strong></em></span></p>
+<span style="color:red"><strong>Don&rsquo;t make the mistake of saving your data to the container&rsquo;s filesystem, without mounting a storage volume into the container.</strong></span></p>
 </section><section>
 <h3 id="exercise-5-creating-a-volume">Exercise 5: Creating a volume</h3>
 <ol>
@@ -395,8 +395,8 @@ ls /persistant_storage
 </ul>
 </section><section>
 <h3 id="this-is-the-basic-concept-around-containers">This is the basic concept around containers</h3>
-<p>The container is just a thing that processes data, don&rsquo;t leave anything you really care about inside it.
-<span style="color:red">(Kind of like when you rent an apartment, you move stuff in and take the stuff out when you leave.)</span>
+<p>The container is just a thing that processes data, don&rsquo;t leave anything you really care about inside it.<br>
+<span style="color:red">Kind of like when you rent an apartment, you move stuff in and take the stuff out when you leave.</span>
 It&rsquo;s a hard thing to do, but when you stop thinking of computers as a whole system and start thinking of them as components:</p>
 <ul>
 <li>Compute</li>

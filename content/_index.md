@@ -227,8 +227,8 @@ ls
 ### Why the file is gone
 It may have surprised you that the file no longer exists. This is one of the things I see confuse people who are new to containers.
 Remember that containers are meant to be ephimeral and should be thought of as living in RAM, not on disk. 
-When you exit from the container, the container no longer has a purpose so it shuts down, and will remove the resources associated with it.   
-<span style="color:red">***Don't make the mistake of saving your data to the container's filesystem, without mounting a storage volume into the container.***</span>
+When you exit from the container, the container no longer has a purpose so it shuts down, and will remove the resources associated with it.  
+<span style="color:red">**Don't make the mistake of saving your data to the container's filesystem, without mounting a storage volume into the container.**</span>
 
 ---
 ### Exercise 5: Creating a volume
@@ -257,8 +257,8 @@ ls /persistant_storage
 
 ---
 ### This is the basic concept around containers
-The container is just a thing that processes data, don't leave anything you really care about inside it.
-<span style="color:red">(Kind of like when you rent an apartment, you move stuff in and take the stuff out when you leave.)</span>
+The container is just a thing that processes data, don't leave anything you really care about inside it.  
+<span style="color:red">Kind of like when you rent an apartment, you move stuff in and take the stuff out when you leave.</span>
 It's a hard thing to do, but when you stop thinking of computers as a whole system and start thinking of them as components:
 - Compute
 - Storage
