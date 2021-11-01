@@ -341,6 +341,34 @@ docker COMMAND SUBCOMMAND help
 <li>Run an interactive terminal with the downloaded image:</li>
 </ol>
 <pre tabindex="0"><code>docker run --name ubuntu_image -it ubuntu
+</code></pre><ul>
+<li>Running this will return a command line inside the container</li>
+<li>Everything you run now, will be in the container&rsquo;s context</li>
+<li>When typing exit, the container will stop, since there is no reason for it to continue running.</li>
+</ul>
+</section><section>
+<h3 id="execise-4-non-persistant-storage">Execise 4: Non-persistant storage</h3>
+<ol>
+<li>Rerun the command from exercise 3, if you are not already in a container context.</li>
+<li>Create a file</li>
+</ol>
+<pre tabindex="0"><code>touch new_file
+</code></pre><ol start="3">
+<li>Check if the file was created</li>
+</ol>
+<pre tabindex="0"><code>ls
+</code></pre><ol start="4">
+<li>Exit and rerun the command from exercise 3. Does the file you created still exist?</li>
+</ol>
+<h3 id="exercise-4-creating-a-volume">Exercise 4: Creating a volume</h3>
+<ol>
+<li>Create a volume</li>
+</ol>
+<pre tabindex="0"><code>docker volume create ubuntu_volume
+</code></pre><ol start="2">
+<li>Inspect the volume you just created</li>
+</ol>
+<pre tabindex="0"><code>docker volume inspect ubuntu_volume
 </code></pre></section>
 
   

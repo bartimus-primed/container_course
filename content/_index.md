@@ -182,7 +182,7 @@ sudo apt install docker.io  <- For debian
 sudo yum install docker-ce  <- For fedora
 ```
 - If you get a permission denied error `sudo` is your friend.
-
+  
 ---
 ### Exercise 1: Getting to know the command line
 1. Open terminal/cmd
@@ -207,4 +207,30 @@ docker pull ubuntu
 1. Run an interactive terminal with the downloaded image:
 ```
 docker run --name ubuntu_image -it ubuntu
+```
+- Running this will return a command line inside the container
+- Everything you run now, will be in the container's context
+- When typing exit, the container will stop, since there is no reason for it to continue running.
+---
+
+### Execise 4: Non-persistant storage
+1. Rerun the command from exercise 3, if you are not already in a container context.
+2. Create a file
+```
+touch new_file
+```
+3. Check if the file was created
+```
+ls
+```
+4. Exit and rerun the command from exercise 3. Does the file you created still exist?
+
+### Exercise 4: Creating a volume
+1. Create a volume
+```
+docker volume create ubuntu_volume
+```
+2. Inspect the volume you just created
+```
+docker volume inspect ubuntu_volume
 ```
