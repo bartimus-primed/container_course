@@ -365,7 +365,7 @@ ls
 <p>It may have surprised you that the file no longer exists. This is one of the things I see confuse people who are new to containers.
 Remember that containers are meant to be ephimeral and should be thought of as living in RAM, not on disk. 
 When you exit from the container, the container no longer has a purpose so it shuts down, and will remove the resources associated with it.<br>
-<span style="color:red"><strong>Don&rsquo;t make the mistake of saving your data to the container&rsquo;s filesystem, without mounting a storage volume into the container.</strong></span></p>
+<span style="color:red"><em><strong>Don&rsquo;t make the mistake of saving your data to the container&rsquo;s filesystem, without mounting a storage volume into the container.</strong></em></span></p>
 </section><section>
 <h3 id="exercise-5-creating-a-volume">Exercise 5: Creating a volume</h3>
 <ol>
@@ -376,7 +376,25 @@ When you exit from the container, the container no longer has a purpose so it sh
 <li>Inspect the volume you just created</li>
 </ol>
 <pre tabindex="0"><code>docker volume inspect ubuntu_volume
-</code></pre></section>
+</code></pre></section><section>
+<h3 id="exercise-6-mounting-the-volume">Exercise 6: Mounting the volume</h3>
+<ol>
+<li>Mount the created volume into the container.</li>
+</ol>
+<pre tabindex="0"><code>docker run -v ubuntu_volume:/persistant_storage -it ubuntu
+</code></pre><ol start="2">
+<li>Create a file inside the volume&rsquo;s mountpoint and check to make sure it exists</li>
+</ol>
+<pre tabindex="0"><code>touch /persistant_storage/new_file
+ls /persistant_storage
+</code></pre><ol start="3">
+<li>Exit from the container and restart it with the command in Step 1.</li>
+</ol>
+<ul>
+<li>Does the file you create still exist?</li>
+</ul>
+</section><section>
+</section>
 
   
 
