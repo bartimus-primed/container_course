@@ -225,12 +225,11 @@ ls
 
 ---
 
-# Side note on why the file doesn't exist
+### Side note on why the file doesn't exist
 It may have surprised you that the file no longer exists. This is one of the things I see confuse people new to containers.
 Remember that containers are meant to be ephimeral and should be thought of as living in RAM, not on disk. When you exit
 from the container, the container no longer has a purpose so it shuts down. 
-*** Don't make the mistake of saving your data
-to the container's filesystem, without mounting a storage volume into the container.
+*** Don't make the mistake of saving your data to the container's filesystem, without mounting a storage volume into the container.
 
 
 ---
