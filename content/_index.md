@@ -70,50 +70,63 @@ An easier way to think about containers would be that the host machine's kernel 
 ### Building
 A container is built using a **Dockerfile**.
 These docker files usually consist of a base image, commands, and any other configurations that may be needed to ensure the application's requirements are fully satisifed during runtime. That docker file can easily be distributed and ran by other docker runtimes. After authoring a Dockerfile, you can create a docker image using the command 
-
-> `docker build`
+```
+docker build
+```
 
 ---
 ### Running
 The docker images that you build or download can then be ran using the command
-
-> `docker run NameOfContainer`
+```
+docker run NameOfContainer
+```
 
 ---
 ### Updating
 When updating a docker image (changing the source code, updating a dependency, etc...), you must rebuild it with the command
-
-> `docker build`
+```
+docker build
+```
 
 ---
 ### Distributing
 After building an image, it may be useful to distribute the image, this is done using the command
-> `docker tag`
+```
+docker tag
+```
 
 followed by the command
-
-> `docker push`
+```
+docker push
+```
 
 ---
 ### Persisting
 Everytime a docker image is stopped and brought back up, it *should* come up in a prestine state. This means all changes will be reverted (kind of like a deep freeze). This isn't exactly useful as most applications require some sort of state storage (a database, list of users, created files, etc...) A persistant storage volume can be created by using the command 
-> `docker volume`
+```
+docker volume
+```
 
 ---
 ### Storage Mapping
 Once you create a storage volume that is stored on the host machine, that volume can then be mapped into a running container using the `-v` switch.
-
-> <span style="font-size:1rem">`docker run -v NameOfCreatedVolume:/container/mount/point NameOfContainer`</span>
+```
+docker run -v NameOfCreatedVolume:/container/mount/point NameOfContainer
+```
 
 ---
 ### Networking
 Ensuring your container can access network resources is pretty useful, this can be accomplished using the command
-> `docker network`
+```
+docker network
+```
 
 ---
 ### Network Mapping
 Once network resource is created, you can map the resource into a container using the `--network` switch.
-> <span style="font-size:1rem">`docker run --network NameOfCreatedNetwork NameOfContainer`</span>
+```
+docker run --network NameOfCreatedNetwork NameOfContainer
+```
 
 - Starting another container with the same network, will allow them to communicate with each other.
 - Using the switch `--network-alias` will set up a DNS "A" record

@@ -211,56 +211,38 @@
 <h3 id="building">Building</h3>
 <p>A container is built using a <strong>Dockerfile</strong>.
 These docker files usually consist of a base image, commands, and any other configurations that may be needed to ensure the application&rsquo;s requirements are fully satisifed during runtime. That docker file can easily be distributed and ran by other docker runtimes. After authoring a Dockerfile, you can create a docker image using the command</p>
-<blockquote>
-<p><code>docker build</code></p>
-</blockquote>
-</section><section>
+<pre tabindex="0"><code>docker build
+</code></pre></section><section>
 <h3 id="running">Running</h3>
 <p>The docker images that you build or download can then be ran using the command</p>
-<blockquote>
-<p><code>docker run NameOfContainer</code></p>
-</blockquote>
-</section><section>
+<pre tabindex="0"><code>docker run NameOfContainer
+</code></pre></section><section>
 <h3 id="updating">Updating</h3>
 <p>When updating a docker image (changing the source code, updating a dependency, etc&hellip;), you must rebuild it with the command</p>
-<blockquote>
-<p><code>docker build</code></p>
-</blockquote>
-</section><section>
+<pre tabindex="0"><code>docker build
+</code></pre></section><section>
 <h3 id="distributing">Distributing</h3>
 <p>After building an image, it may be useful to distribute the image, this is done using the command</p>
-<blockquote>
-<p><code>docker tag</code></p>
-</blockquote>
-<p>followed by the command</p>
-<blockquote>
-<p><code>docker push</code></p>
-</blockquote>
-</section><section>
+<pre tabindex="0"><code>docker tag
+</code></pre><p>followed by the command</p>
+<pre tabindex="0"><code>docker push
+</code></pre></section><section>
 <h3 id="persisting">Persisting</h3>
 <p>Everytime a docker image is stopped and brought back up, it <em>should</em> come up in a prestine state. This means all changes will be reverted (kind of like a deep freeze). This isn&rsquo;t exactly useful as most applications require some sort of state storage (a database, list of users, created files, etc&hellip;) A persistant storage volume can be created by using the command</p>
-<blockquote>
-<p><code>docker volume</code></p>
-</blockquote>
-</section><section>
+<pre tabindex="0"><code>docker volume
+</code></pre></section><section>
 <h3 id="storage-mapping">Storage Mapping</h3>
 <p>Once you create a storage volume that is stored on the host machine, that volume can then be mapped into a running container using the <code>-v</code> switch.</p>
-<blockquote>
-<p><span style="font-size:1rem"><code>docker run -v NameOfCreatedVolume:/container/mount/point NameOfContainer</code></span></p>
-</blockquote>
-</section><section>
+<pre tabindex="0"><code>docker run -v NameOfCreatedVolume:/container/mount/point NameOfContainer
+</code></pre></section><section>
 <h3 id="networking">Networking</h3>
 <p>Ensuring your container can access network resources is pretty useful, this can be accomplished using the command</p>
-<blockquote>
-<p><code>docker network</code></p>
-</blockquote>
-</section><section>
+<pre tabindex="0"><code>docker network
+</code></pre></section><section>
 <h3 id="network-mapping">Network Mapping</h3>
 <p>Once network resource is created, you can map the resource into a container using the <code>--network</code> switch.</p>
-<blockquote>
-<p><span style="font-size:1rem"><code>docker run --network NameOfCreatedNetwork NameOfContainer</code></span></p>
-</blockquote>
-<ul>
+<pre tabindex="0"><code>docker run --network NameOfCreatedNetwork NameOfContainer
+</code></pre><ul>
 <li>Starting another container with the same network, will allow them to communicate with each other.</li>
 <li>Using the switch <code>--network-alias</code> will set up a DNS &ldquo;A&rdquo; record</li>
 </ul>
