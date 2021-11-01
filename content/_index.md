@@ -225,7 +225,8 @@ touch new_file
 ```
 ls
 ```
-4. Exit and rerun the command from exercise 3. Does the file you created still exist?
+4. Exit and rerun the command from Exercise 3. 
+- Does the file you created still exist?
 
 ---
 ### Exercise 5: Creating a volume
