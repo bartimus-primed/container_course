@@ -4,8 +4,6 @@ outputs = ["Reveal"]
 +++
 # Introduction to Containers
 - This course provides a gentle introduction to containers. It is best used in conjunction with the official [Docker Documentation](https://docs.docker.com/).
-- Course Updates:
-- Testing auto deploy.
 ---
 ## What is Docker?
 Docker is a container runtime there are multiple types of container runtimes. Popular rutimes are:
