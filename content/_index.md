@@ -258,7 +258,7 @@ ls /persistant_storage
 ---
 ### This is the basic concept around containers
 The container is just a thing that processes data, don't leave anything you really care about inside it.  
-<span style="color:red, font-size:.5em">Kind of like when you rent an apartment, you move stuff in and take the stuff out when you leave.</span>
+<span style="color:red, font-size:.5em">Kind of like when you rent an apartment, you move stuff in and take the stuff out when you leave.</span>  
 When you stop thinking of computers as a whole system and start thinking of them as components:
 - Compute
 - Storage
