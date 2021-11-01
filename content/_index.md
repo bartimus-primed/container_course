@@ -174,6 +174,7 @@ Docker supports different types of network drivers (bridge, host, overlay, macvl
 3. View the options and commands that are shown
 4. Almost any command and the related subcommands will show help 
    > <span style="font-size:.5em">`docker COMMAND help`</span>
+   
    > <span style="font-size:.5em">`docker COMMAND SUBCOMMAND help`</span>
 
 ---
