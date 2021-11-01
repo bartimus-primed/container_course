@@ -182,9 +182,9 @@ docker COMMAND SUBCOMMAND help
 ---
 ### Exercise 2: Downloading an image
 1. Download the ubuntu docker image with the command 
-   > `docker pull ubuntu`
+```docker pull ubuntu```
 
 ---
 ### Exercise 3: Run a docker image
 1. Run an interactive terminal with the downloaded image:
-   > <span style="font-size:.5rem">`docker run --name ubuntu_image -it ubuntu`</span>
+```docker run --name ubuntu_image -it ubuntu```
