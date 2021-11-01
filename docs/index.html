@@ -330,11 +330,11 @@ These docker files usually consist of a base image, commands, and any other conf
 <ul>
 <li>Finally some hands on.</li>
 <li>These commands should work regardless of the OS.</li>
-<li>Requirement: docker
-<blockquote>
-<p><code>sudo apt install docker.io</code></p>
-</blockquote>
-</li>
+<li>Requirement: docker</li>
+</ul>
+<pre tabindex="0"><code>sudo apt install docker.io  &lt;- For debian
+sudo yum install docker-ce  &lt;- For fedora
+</code></pre><ul>
 <li>If you get a permission denied error <code>sudo</code> is your friend.</li>
 </ul>
 </section><section>
@@ -350,16 +350,16 @@ docker COMMAND SUBCOMMAND help
 </code></pre></section><section>
 <h3 id="exercise-2-downloading-an-image">Exercise 2: Downloading an image</h3>
 <ol>
-<li>Download the ubuntu docker image with the command 
-<code>docker pull ubuntu</code></li>
+<li>Download the ubuntu docker image with the command</li>
 </ol>
-</section><section>
+<pre tabindex="0"><code>docker pull ubuntu
+</code></pre></section><section>
 <h3 id="exercise-3-run-a-docker-image">Exercise 3: Run a docker image</h3>
 <ol>
-<li>Run an interactive terminal with the downloaded image:
-<code>docker run --name ubuntu_image -it ubuntu</code></li>
+<li>Run an interactive terminal with the downloaded image:</li>
 </ol>
-</section>
+<pre tabindex="0"><code>docker run --name ubuntu_image -it ubuntu
+</code></pre></section>
 
   
 

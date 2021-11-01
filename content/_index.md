@@ -164,7 +164,10 @@ Docker supports different types of network drivers (bridge, host, overlay, macvl
 - Finally some hands on.
 - These commands should work regardless of the OS.
 - Requirement: docker 
-  > `sudo apt install docker.io`
+```
+sudo apt install docker.io  <- For debian
+sudo yum install docker-ce  <- For fedora
+```
 - If you get a permission denied error `sudo` is your friend.
 
 ---
@@ -182,9 +185,13 @@ docker COMMAND SUBCOMMAND help
 ---
 ### Exercise 2: Downloading an image
 1. Download the ubuntu docker image with the command 
-```docker pull ubuntu```
+```
+docker pull ubuntu
+```
 
 ---
 ### Exercise 3: Run a docker image
 1. Run an interactive terminal with the downloaded image:
-```docker run --name ubuntu_image -it ubuntu```
+```
+docker run --name ubuntu_image -it ubuntu
+```
