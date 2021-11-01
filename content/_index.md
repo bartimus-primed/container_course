@@ -224,7 +224,6 @@ ls
 - Does the file you created still exist?
 
 ---
-
 ### Why the file is gone
 It may have surprised you that the file no longer exists. This is one of the things I see confuse people who are new to containers.
 Remember that containers are meant to be ephimeral and should be thought of as living in RAM, not on disk. 
@@ -254,6 +253,13 @@ touch /persistant_storage/new_file
 ls /persistant_storage
 ```
 3. Exit from the container and restart it with the command in Step 1.
-- Does the file you create still exist?
+- Does the file you created still exist?
 
 ---
+### This is the basic concept around containers
+Use the container only as a "rental", don't leave anything you really care about inside it. 
+It's a hard thing to do, but when you stop thinking of computers as a whole and start thinking of them as components:
+- Compute
+- Storage
+- Network
+You will finally start to grasp containers.
