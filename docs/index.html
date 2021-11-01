@@ -326,6 +326,18 @@ These docker files usually consist of a base image, commands, and any other conf
 <li>This allows higher level management software (like kubernetes) to only use the portions of docker that are needed</li>
 </ul>
 </section><section>
+<h3 id="exercises">Exercises!</h3>
+<ul>
+<li>Finally some hands on.</li>
+<li>These commands should work regardless of the OS.</li>
+<li>Requirement: docker
+<blockquote>
+<p><code>sudo apt install docker.io</code></p>
+</blockquote>
+</li>
+<li>If you get a permission denied error <code>sudo</code> is your friend.</li>
+</ul>
+</section><section>
 <h3 id="exercise-1-getting-to-know-the-command-line">Exercise 1: Getting to know the command line</h3>
 <ol>
 <li>Open terminal/cmd</li>
@@ -344,6 +356,15 @@ These docker files usually consist of a base image, commands, and any other conf
 <li>Download the ubuntu docker image with the command
 <blockquote>
 <p><span style="font-size:.5em"><code>docker pull ubuntu</code></span></p>
+</blockquote>
+</li>
+</ol>
+</section><section>
+<h3 id="exercise-3-run-a-docker-image">Exercise 3: Run a docker image</h3>
+<ol>
+<li>Run an interactive terminal with the downloaded image:
+<blockquote>
+<p><span style="font-size:.5em"><code>docker run --name ubuntu_image -it ubuntu</code></span></p>
 </blockquote>
 </li>
 </ol>

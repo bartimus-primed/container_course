@@ -160,6 +160,14 @@ Docker supports different types of network drivers (bridge, host, overlay, macvl
 - This allows higher level management software (like kubernetes) to only use the portions of docker that are needed
 
 ---
+### Exercises!
+- Finally some hands on.
+- These commands should work regardless of the OS.
+- Requirement: docker 
+  > `sudo apt install docker.io`
+- If you get a permission denied error `sudo` is your friend.
+
+---
 ### Exercise 1: Getting to know the command line
 1. Open terminal/cmd
 2. Run `docker`
@@ -172,3 +180,8 @@ Docker supports different types of network drivers (bridge, host, overlay, macvl
 ### Exercise 2: Downloading an image
 1. Download the ubuntu docker image with the command 
    > <span style="font-size:.5em">`docker pull ubuntu`</span>
+
+---
+### Exercise 3: Run a docker image
+1. Run an interactive terminal with the downloaded image:
+   > <span style="font-size:.5em">`docker run --name ubuntu_image -it ubuntu`</span>
