@@ -164,9 +164,13 @@ Docker supports different types of network drivers (bridge, host, overlay, macvl
 1. Open terminal/cmd
 2. Run `docker`
 3. View the options and commands that are shown
-4. Choose a command shown, type <span style="font-size:1rem">`docker COMMAND help`</span>
+4. Choose a command shown, type:
+   > <span style="font-size:1rem">`docker COMMAND help`</span>
 5. View the additional help that is shown.
-6. Almost any command and the related subcommands will show help <span style="font-size:1rem">`docker COMMAND SUBCOMMAND help`</span>
+6. Almost any command and the related subcommands will show help 
+   > <span style="font-size:1rem">`docker COMMAND SUBCOMMAND help`</span>
 
+---
 ### Exercise 2: Downloading an image
-1. Download the ubuntu docker image with the command <span style="font-size:1rem"></span>
+1. Download the ubuntu docker image with the command 
+   > <span style="font-size:1rem">`docker pull ubuntu`</span>
