@@ -361,6 +361,13 @@ ls
 <li>Does the file you created still exist?</li>
 </ul>
 </section><section>
+<h1 id="side-note-on-why-the-file-doesnt-exist">Side note on why the file doesn&rsquo;t exist</h1>
+<p>It may have surprised you that the file no longer exists. This is one of the things I see confuse people new to containers.
+Remember that containers are meant to be ephimeral and should be thought of as living in RAM, not on disk. When you exit
+from the container, the container no longer has a purpose so it shuts down. 
+*** Don&rsquo;t make the mistake of saving your data
+to the container&rsquo;s filesystem, without mounting a storage volume into the container.</p>
+</section><section>
 <h3 id="exercise-5-creating-a-volume">Exercise 5: Creating a volume</h3>
 <ol>
 <li>Create a volume</li>
