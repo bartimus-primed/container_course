@@ -160,4 +160,10 @@ Docker supports different types of network drivers (bridge, host, overlay, macvl
 - This allows higher level management software (like kubernetes) to only use the portions of docker that are needed
 
 ---
-### Test New auto build
+### Exercise 1: Getting to know the command line
+1. Open terminal/cmd
+2. Run `docker`
+3. View the options and commands that are shown
+4. Choose a command shown, type `docker COMMAND help`
+5. View the additional help that is shown.
+6. Almost any command and the related subcommands will show help `docker COMMAND SUBCOMMAND help`
