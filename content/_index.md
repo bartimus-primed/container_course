@@ -215,17 +215,12 @@ docker run --name ubuntu_image -it ubuntu
 
 ### Exercise 4: Non-persistant storage
 1. Rerun the command from Exercise 3, if you are not already in a container context.
-2. Create a file
+2. Create a file and check if the file was created
 ```
 touch new_file
-```
-
-3. Check if the file was created
-
-```
 ls
 ```
-4. Exit and rerun the command from Exercise 3. 
+3. Exit and rerun the command from Exercise 3
 - Does the file you created still exist?
 
 ---
