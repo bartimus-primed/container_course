@@ -258,8 +258,8 @@ ls /persistant_storage
 ---
 ### This is the basic concept around containers
 Use the container only as a "rental", don't leave anything you really care about inside it. 
-It's a hard thing to do, but when you stop thinking of computers as a whole and start thinking of them as components:
+It's a hard thing to do, but when you stop thinking of computers as a whole system and start thinking of them as components:
 - Compute
 - Storage
 - Network  
-You will finally start to grasp containers.
+Then, you will finally start to grasp containers.
